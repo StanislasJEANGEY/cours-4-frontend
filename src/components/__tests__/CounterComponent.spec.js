@@ -36,6 +36,8 @@ describe('Counter', () => {
     it('decrements counter', async () => {
       const wrapper = mountCounter(50)
       const counterStore = useCounterStore()
+      await wrapper.find('button[id=decrement]').trigger('click')
+      expect(counterStore.decrement).toHaveBeenCalledTimes(1)
     })
   })
 })
